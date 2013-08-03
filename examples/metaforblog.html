@@ -1,0 +1,32 @@
+{{$ meta }}
+title: Adding metadata to a blog post, and using it to display a list of posts
+tags: meta
+example:
+  {{$raw}}-- /posts/blogpost.html: ----------
+  
+  {{$ meta }}
+  title: My blog post
+  created: 2012-09-23
+  author: Cole Krumbholz
+  {{$ endmeta }}
+
+  {{$ layout /layouts/blogbase.html as content }}
+
+  <h2> Chickens are not Turkeys </h2>
+
+  What a week. Today I learned an important distinction between two similar varieties of fowl...
+
+  
+  -- /index.html: -------------------
+
+  {{$ layout /layouts/sitebase.html as content }}
+
+  <h1>My posts:</h1>
+  <ul>
+    {{$ each /posts/*.html as post | sort {$ post.created } }}
+      <li><a href="{$ post.url }">{$ post.title }</a></li>
+    {{$ endeach }}
+  </ul>
+  {{$endraw}}
+desc: Here we first create a blog post and place the <code>meta</code> tag at the top where we add some properties to the post, like a post title, created date and author. We then fill out the rest of the post like a normal HTML page. Later in the <code>index.html</code> page we create a list of posts by using the <code>each</code> tag. Within that block we can refer to the properties that we created in the <code>meta</code> block of each file.
+{{$ endmeta }}
