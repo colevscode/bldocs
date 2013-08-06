@@ -1,1 +1,3 @@
 development: yes
+
+redirect_to_https: no

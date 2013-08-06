@@ -1,6 +1,7 @@
 {{$meta}}
 type: guide
-title: Backlift analytics
+title: Analytics
+order: 3
 {{$endmeta}}
 
 {{$layout /index.html as content}}

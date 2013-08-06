@@ -1,6 +1,7 @@
 {{$meta}}
 type: guide
-title: Authorization
+title: Authorization API
+order: 6
 {{$endmeta}}
 
 {{$layout /index.html as content}}

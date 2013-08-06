@@ -1,13 +1,14 @@
 {{$meta}}
 type: guide
-title: The Template Language
+title: Template Tags
+order: 2
 {{$endmeta}}
 
 {{$layout /index.html as content}}
 
 ## Overview
 
-Backlift websites can take advantage of backlift's powerful templating language. This language was designed from the ground up to help non-programmers easily build modern websites. When someone on the internet accesses one of your Backlift HTML pages, the template tags on the page are converted into plain HTML. This is called "rendering" the page, and allows you to add dynamic data to your webpages. For example, you can search through all the images in a "photos" folder and build a gallery on-the-fly.
+Backlift websites can take advantage of backlift's templating language. This language was designed from the ground up to help non-programmers build modern websites. When someone on the internet accesses one of your Backlift HTML pages, the template tags on the page are converted into plain HTML. This is called "rendering" the page, and allows you to add dynamic data to your webpages. For example, you can search through all the images in a "photos" folder and build a gallery on the fly.
 
 Here are just a few of the things you can do with Backlift's template language:
 
@@ -64,7 +65,7 @@ This way you can avoid repeating yourself and keep your code organized.
       {{$ endwith }}{{$ endraw }}
     </ul>
 
-
+{{$ servercomment }}
 ## Why a new template language?
 
 We designed Backlift's template language to fulfill all the following requirements:
@@ -80,7 +81,7 @@ We designed Backlift's template language to fulfill all the following requiremen
 5. Work with dynamic data, not just static files. It natively speaks JSON APIs.
 
 Above all, it's tailored specifically for building websites without requiring a backend framework like Rails or Django.
-
+{{$ endservercomment }}
 
 ## General syntax
 

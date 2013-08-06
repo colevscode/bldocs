@@ -1,0 +1,16 @@
+<div class="refentry">
+  <a id="{$ entry.tag }"></a>
+  <h2> {$ entry.title } </h2>
+  <span> {$ entry.syntax } </span>
+  {{$ include {$ entry.path} }}
+  {{$ with /backlift/files/recipes/*.html as recipelist }}
+      {{$ each {$ recipelist } as recipe | if {$ entry.tag } in {$ recipe.tags } | first }}
+        <h3>Recipes:</h3>
+      {{$ endeach }}
+      <ul>
+        {{$ each {$ recipelist } as recipe | if {$ entry.tag } in {$ recipe.tags } | sort {$ recipe.difficulty} }}
+          <li><a href="{$ recipe.path }">{$ recipe.title }</a></li>
+        {{$ endeach }}
+      </ul>
+  {{$ endwith }}
+</div>

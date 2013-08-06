@@ -1,0 +1,15 @@
+{{$meta}}
+type: reference
+title: Reference Overview
+order: 0
+{{$endmeta}}
+
+{{$layout /partials/base.html as content}}
+
+<p>
+Backlift makes several template tags available for use in HTML files. These tags let you add dynamic data to your website. Please see the discusion about the use of template tags and general syntax <a href="/guides/templatelang.html">here</a>.
+</p>
+
+{{$ each /backlift/files/reference/templatetags/*.html as entry | sort {$ entry.title } }}
+  {{$ include /partials/refentry.html }}
+{{$ endeach }}

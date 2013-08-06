@@ -1,0 +1,12 @@
+{{$ meta }}
+title: "Recipe: {$ meta.title }"
+{{$ endmeta }}
+
+{{$ layout /partials/base.html as content }}
+
+{$ content }
+
+{{$ if {$ meta.references } }}
+  <h2> Further reading:</h2>
+  {$ meta.references }
+{{$ endif }}

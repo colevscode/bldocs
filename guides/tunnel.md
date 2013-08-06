@@ -1,6 +1,7 @@
 {{$meta}}
 type: guide
 title: Tunnel API
+order: 7
 {{$endmeta}}
 
 {{$layout /index.html as content}}

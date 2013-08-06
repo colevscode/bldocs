@@ -1,0 +1,18 @@
+{{$meta}}
+type: reference
+title: Template Tags
+subnav: |
+  {{$ each /backlift/files/reference/templatetags/*.html as entry | sort {$ entry.title } }}
+    <li><a href="/reference/templatetags#{$ entry.tag }">{$ entry.title }</a></li>
+  {{$ endeach }}
+{{$endmeta}}
+
+{{$layout /partials/base.html as content}}
+
+<p>
+Backlift makes several template tags available for use in HTML files. These tags let you add dynamic data to your website. Please see the discusion about the use of template tags and general syntax <a href="/guides/templatelang.html">here</a>.
+</p>
+
+{{$ each /backlift/files/reference/templatetags/*.html as entry | sort {$ entry.title } }}
+  {{$ include /partials/refentry.html }}
+{{$ endeach }}

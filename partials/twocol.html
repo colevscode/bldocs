@@ -1,26 +1,44 @@
-		<div class="row">
-			<div class="span3">
+<div class="row">
+  <div class="span3">
 
-				<div data-spy="affix" data-offset-top="120">
-					<h3>Guides:</h3>
-					{{$ nav /guides/*.html 'nav nav-tabs nav-stacked' | sort $page.order $page.title }}
+    <div data-spy="affix" data-offset-top="120">
+      <ul class='nav nav-list mainnav'>
+        <li class="{{$ if {$ meta.path } is 'index.html' }}active{{$ endif }}">
+          <a href="/">Home</a>
+        </li>
+        <li class="nav-header">Guides</li>
+        {{$ each /backlift/files/guides/*.html as page | sort $page.order $page.title }}
+        <li class="{{$ active {$ page } }}">
+          <a href="{$ page.path }">{$ page.title }</a>
+        </li>
+        {{$ endeach }}
 
-					<h3>Reference:</h3>
-					{{$ nav /reference/*.html 'nav nav-tabs nav-stacked' | sort $page.order $page.title }}
-				</div>
+        <li class="nav-header">Reference</li>
+        {{$ each /backlift/files/reference/*.html as page | sort $page.order $page.title }}
+        <li class="{{$ active {$ page } }}">
+          <a href="{$ page.path }">{$ page.title }</a>
+          {{$ if {$ page.fileid } is {$ meta.fileid } }}
+             <ul class="nav nav-list">
+               {$ page.subnav }
+             </ul>
+          {{$ endif }}
+        </li>
+        {{$ endeach }}
+      </ul>
+    </div>
 
-			</div>
+  </div>
 
-			<div class="span9">
+  <div class="span9">
 
-	{{$ if not $content }}
-		{{$ include /partials/mainnav.html }}
-	{{$ endif }}
+    {{$ if not $content }}
+      {{$ include /partials/mainnav.html }}
+    {{$ endif }}
 
-				{{$ if $content }}
-				<h1>{$ meta.title }</h1>
-				{$ content }
-				{{$ endif }}
+    {{$ if $content }}
+    <h1>{$ meta.title }</h1>
+    {$ content }
+    {{$ endif }}
 
-			</div>
-		</div>
+  </div>
+</div>
